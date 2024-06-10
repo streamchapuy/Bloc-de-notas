@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    position: absolute;
+    cursor: pointer;
+    width: 56px;
+    height: 30px;
+    margin-left: 90%;
+    background-color: #000;
+    border-color: #555 2px solid;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+
+}
+
+button::before {    
+    content: "";    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, trasparent, #00fffc, trasparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+    position: absolute;
+}
+
+
+
+
+h1 {
+    margin-top: 2.5px;
+    position: absolute;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 2em;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    -webkit-background-clip: text;    
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 85%;
+    animation: anime 2.5s linear infinite;
+    background-color: black;
+    color: aliceblue;
+}
+
+.encabezado {
+    background-color: black;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+
+
+
+.emoji {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.block {
+    position: relative;
+    width: 600px;
+    height: 700px;
+    background-color: #bcc4c1;
+    box-shadow: 0px 0px 23px black;
+    background:
+        linear-gradient(to bottom, #bcc4c1, #bcc4c1 20px, #050508 30px, #050508 30px),
+        linear-gradient(to right, #bcc4c1, #bcc4c1 20px, #050508 30px, #050508 30px);
+    background-size: 100% 25px, 40px 100%;
+}
+
+ul {
+    
+    padding: 0;
+    margin: 2px 0px;
+}
+
+
+
+li {
+     margin: 0px 20px;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+
+
+.realizado {
+    text-decoration: line-through;
+}
+
+
+
+.menu {
+    position: relative;
+}
+
+.menu button {
+    color: tomato;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.menu:hover button {
+    display: block;
+}
+
+
+.menu button:hover {
+    background-color: #555;
+}
+
+
+.opciones {
+    display: flex;    
+    align-items: end;
+    margin: auto ;
+    margin-top: 40px;
+    gap: 16px;
+}
+
+button:hover {
+    background-color:red;
+
+}
+
+
+
+
+@keyframes anime {
+    0% {
+        background-position: -500%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}

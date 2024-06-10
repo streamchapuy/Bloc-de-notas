@@ -1,0 +1,43 @@
+<main>
+    <div class="block">
+        <div class="encabezado">
+            <h1>{{title}}</h1>
+            <button (click)="MostrarHijo()">
+                {{mostrarHijo ? "Ocultar" : "Mostrar"}}
+            </button>
+            <div class="opciones">
+                <label for="fontSelect">Fuente:</label>
+                <select name="selector" id="fontSelect" (change)="cambiarFonts($event)">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Courier New">Courier New</option>                 
+                </select>
+                <label for="sizeSelect">Tamaño:</label>
+                <select name="selector" id="sizeSelect" (change)="cambiarTamanio($event)">
+                    <option value="12">12px</option>
+                    <option value="16">16px</option>
+                    <option value="20">20px</option>
+                    <option value="40">40px</option>
+                </select>
+                <label for="colorSelect">Color:</label>
+                <input type="color" name="colorSelect" id="colorSelect" (change)="cambiarColor($event)">
+            </div>
+        </div>
+        <div id="contenedor">
+            <ul id="listas">
+                <li *ngFor="let nota of notas; let i = index" [ngClass]="{'realizado': nota.realizado}"
+                    (contextmenu)="mostrarMenu($event,i)" [ngStyle]="{'font-family': nota.fuente, 'font-size.px': nota.tamanio, 'color': nota.color}">
+                    <input type="checkbox" name="marcada" [id]="'checkbox' + i" (change)="marcarRealizado(i)"
+                        [checked]="nota.realizado"/> 
+                    <span class="emoji" [innerHTML]="nota.texto | emoticonToEmoji"></span>
+                    <div class="menu" *ngIf="nota.mostrarMenu">                        
+                        <button (click)="eliminarNota(i)">Eliminar</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+<app-hijo *ngIf="mostrarHijo" (nuevaNotaEvent)="agregarNota($event)"></app-hijo>
+<router-outlet></router-outlet>
